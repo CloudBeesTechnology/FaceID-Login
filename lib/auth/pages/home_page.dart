@@ -15,30 +15,58 @@ class HomePage extends StatelessWidget {
         title: const Text('Home'),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () async {
-              await authService.logout();
-            },
-          ),
+          // IconButton(
+          //   icon: const Icon(Icons.logout),
+          //   onPressed: () async {
+          //     // await authService.logout();
+          //   },
+          // ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: Column(
           children: [
-            const Icon(Icons.verified_user, size: 100,color: Colors.green,),
-            const SizedBox(height: 20),
-            Text('Welcome',style: TextStyle(fontSize: 24),),
-            Text(
-              '${user?.email ?? 'User'}',
-              style: const TextStyle(fontSize: 24),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 40, right: 20),
+                child: TextButton(
+                  onPressed: () async {
+                    await authService.logout();
+                  },
+                  child: Text(
+                    'Now Login with Face ID',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ),
-            const SizedBox(height: 20),
-            const Text('You are successfully authenticated'),
+            Expanded(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.verified_user, size: 70, color: Colors.green),
+                    const SizedBox(height: 20),
+                    Text(
+                      'Welcome',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                    Text(
+                      '${user?.email ?? 'User'}',
+                      style: const TextStyle(fontSize: 24),
+                    ),
+                    const SizedBox(height: 20),
+                    const Text('You are successfully authenticated'),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
-      ),
     );
   }
 }

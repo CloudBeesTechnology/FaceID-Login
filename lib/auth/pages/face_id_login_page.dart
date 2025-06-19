@@ -72,7 +72,7 @@ class _FaceIdLoginPageState extends State<FaceIdLoginPage> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: const Text('Authenticate with Face ID',style: TextStyle(color: Colors.blue,fontSize: 20),),
+                  child: const Text('Authenticate with Face ID',style: TextStyle(color: Colors.blue,fontSize: 18),),
                 ),
               const SizedBox(height: 20),
               TextButton(
